@@ -1,0 +1,34 @@
+{
+  "tasks": [
+    {
+      "id": 2,
+      "text": "HAcer las compras de materiales",
+      "day": "Febrero 21 a las 13:05",
+      "reminder": true
+    },
+    {
+      "id": 3,
+      "text": "Lavar la camioneta completa",
+      "day": "Marzo 11 a las 08:00",
+      "reminder": true
+    },
+    {
+      "id": 5,
+      "text": "Ir al correo",
+      "day": "Abril 1 a las 00:00",
+      "reminder": true
+    },
+    {
+      "text": "dffffffg",
+      "day": "gggg",
+      "reminder": false,
+      "id": 6
+    },
+    {
+      "text": "Nueva tarea",
+      "day": "mañana",
+      "reminder": true,
+      "id": 7
+    }
+  ]
+}

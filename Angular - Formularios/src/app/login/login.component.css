@@ -1,0 +1,17 @@
+.error{
+  color:red
+}
+
+.border-danger{
+  border-color: red;
+}
+
+.place_order
+{
+    cursor: not-allowed;
+    background-color: rgb(229, 229, 229) !important;
+}
+.place_order > * 
+{
+    pointer-events:none;
+}

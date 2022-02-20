@@ -1,0 +1,89 @@
+<!--CDN ANGULARJS -->
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+<script src="script.js"></script>
+
+<form [formGroup]="form" (ngSubmit)="onEnviar($event)">
+  <div>
+    <label for="user">Usuario: </label>
+    <input
+      type="user"
+      formControlName="user"
+      [ngClass]="{ 'border-danger': User?.errors }"
+    />
+  </div>
+  <!-- Gracias al getter que configuramos en el controlador -->
+  <div *ngIf="User?.errors && User?.touched">
+    <p *ngIf="User?.hasError('required')" class="error">
+      El usuario es requerido.
+    </p>
+    <p *ngIf="User?.errors?.minlength" class="error">
+      El usuario debe tener minimo 5 caracteres.
+    </p>
+    <p *ngIf="User?.errors?.maxlength" class="error">
+      El usuario debe tener maximo 12 caracteres.
+    </p>
+    <p *ngIf="User?.hasError('email')" class="error">
+      El formato del usuario debe ser válido.
+    </p>
+  </div>
+
+  <br />
+  <div>
+    <label for="email">Email: </label>
+    <input
+      type="email"
+      formControlName="email"
+      [ngClass]="{ 'border-danger': User?.errors }"
+    />
+  </div>
+  <!-- Gracias al getter que configuramos en el controlador -->
+  <div *ngIf="Mail?.errors && Mail?.touched">
+    <p *ngIf="Mail?.hasError('required')" class="error">
+      El email es requerido.
+    </p>
+    <p *ngIf="Mail?.hasError('email')" class="error">
+      El formato del email debe ser válido.
+    </p>
+  </div>
+
+  <br />
+  <div>
+    <label for="exampleInputPassword1" class="form-label">Password: </label>
+    <input
+      type="password"
+      formControlName="password"
+      [class.border-danger]="MailValid"
+    />
+  </div>
+  <!-- Gracias al getter que configuramos en el controlador -->
+  <div *ngIf="Password?.errors && Password?.touched">
+    <p *ngIf="Password?.hasError('required')" class="error">
+      El password es requerido.
+    </p>
+    <p *ngIf="Password?.errors?.minlength" class="error">
+      El password debe ser de 8 o más caracteres.
+    </p>
+  </div>
+  <br />
+  <div>
+    <button
+      type="submit"
+      [ngClass]="{
+        place_order: User?.errors || Mail?.errors || Password?.errors
+      }"
+    >
+      Iniciar Sesión
+    </button>
+  </div>
+</form>
+
+<div>
+  <p>
+    Un debuger para mostrar que es posible hacer un biding directo al formulario
+    <strong>{{ form.value.email }} </strong
+    ><strong>{{ form.value.password }} </strong>
+  </p>
+  <p>
+    <br />
+  </p>
+</div>
